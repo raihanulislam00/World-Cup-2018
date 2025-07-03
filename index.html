@@ -3,13 +3,17 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
     <title>2018 Foosball World Cup</title>
-    <meta name="description" content="Play the 2018 Foosball World Cup and challenge the greatest world teams!">
+    <meta name="description" content="Play the 2018 Foosball World Cup and challenge the greatest world teams! Experience stunning visuals and immersive gameplay.">
     <link rel="canonical" href="https://foosballworldcup18.aquest.it/">
     <meta property="fb:app_id" content="2099563226991766">
     <meta property="og:title" content="2018 Foosball World Cup">
-    <meta property="og:description" content="Play the 2022 Foosball World Cup and challenge the greatest world teams!">
+    <meta property="og:description" content="Play the 2018 Foosball World Cup and challenge the greatest world teams! Experience stunning visuals and immersive gameplay.">
     <meta property="og:url" content="https://foosballworldcup18.aquest.it/">
     <meta property="og:site_name" content="2018 Foosball World Cup">
     <meta property="og:type" content="website">
@@ -20,7 +24,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="2018 Foosball World Cup">
     <meta name="twitter:site" content="@aquest">
-    <meta name="twitter:description" content="Play the 2022 Foosball World Cup and challenge the greatest world teams!">
+    <meta name="twitter:description" content="Play the 2018 Foosball World Cup and challenge the greatest world teams! Experience stunning visuals and immersive gameplay.">
     <meta name="twitter:url" content="https://foosballworldcup18.aquest.it/">
     <meta name="twitter:image" content="https://foosballworldcup18.aquest.it/shareimage.aspx?code=/">
     <meta name="twitter:creator" content="@aquest">
@@ -30,19 +34,413 @@
     <link rel="manifest" href="./static/site.webmanifest">
     <link rel="mask-icon" href="./static/safari-pinned-tab.svg" color="#f6265c">
     <meta name="msapplication-TileColor" content="#f6265c">
-    <meta name="theme-color" content="#f6265c">
-    <style>html,
-body {
-background-color: #000;
-}</style>
+    <meta name="theme-color" content="#302b63">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            color: #fff;
+            font-family: 'Poppins', 'Montserrat', Arial, sans-serif;
+            min-height: 100vh;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        #app {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(12px);
+            border-radius: 40px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37),
+                        inset 0 0 80px rgba(255, 255, 255, 0.05);
+            margin: 32px auto;
+            max-width: 1200px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #app::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        #app:hover::before {
+            left: 100%;
+        }
+
+        #app:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 15px 60px 0 rgba(31, 38, 135, 0.55),
+                        inset 0 0 100px rgba(255, 255, 255, 0.1);
+        }
+
+        ::selection {
+            background: #f6265c;
+            color: #fff;
+        }
+
+        .button, button {
+            background: linear-gradient(45deg, #f6265c, #ff3d7f);
+            border: none;
+            border-radius: 30px;
+            padding: 15px 35px;
+            color: white;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(246, 38, 92, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button::before, button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .button:hover::before, button:hover::before {
+            left: 100%;
+        }
+
+        .button:hover, button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(246, 38, 92, 0.4);
+            background: linear-gradient(45deg, #ff3d7f, #f6265c);
+        }
+
+        .title {
+            font-size: 3em;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            margin-bottom: 1.2em;
+            background: linear-gradient(45deg, #fff 30%, #f6265c 70%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+
+        .title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #f6265c, transparent);
+        }
+
+        .card {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(12px);
+            border-radius: 30px;
+            padding: 32px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                circle,
+                rgba(255,255,255,0.1) 0%,
+                transparent 70%
+            );
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+            transform: translate(25%, 25%);
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 60px 0 rgba(31, 38, 135, 0.5);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(1deg); }
+            75% { transform: translateY(10px) rotate(-1deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Responsive Design */
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(15, 12, 41, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255,255,255,0.1);
+            border-top-color: #f6265c;
+            border-radius: 50%;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loader p {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Accessibility Overlay */
+        .accessibility-overlay {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255,255,255,0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .accessibility-overlay button {
+            padding: 8px 15px;
+            font-size: 0.9em;
+            min-width: 44px;
+            min-height: 44px;
+        }
+
+        /* High Contrast Theme */
+        body.high-contrast {
+            background: #000;
+            color: #fff;
+        }
+
+        body.high-contrast #app {
+            background: rgba(0,0,0,0.9);
+        }
+
+        body.high-contrast .button,
+        body.high-contrast button {
+            background: #fff;
+            color: #000;
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #app {
+                margin: 16px;
+                border-radius: 30px;
+            }
+            .title {
+                font-size: 2em;
+            }
+            .card {
+                padding: 24px;
+            }
+            .accessibility-overlay {
+                flex-wrap: wrap;
+                justify-content: center;
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+            }
+        }
+
+        /* Focus Styles */
+        :focus {
+            outline: 3px solid #f6265c;
+            outline-offset: 2px;
+        }
+
+        :focus:not(:focus-visible) {
+            outline: none;
+        }
+
+        :focus-visible {
+            outline: 3px solid #f6265c;
+            outline-offset: 2px;
+        }
+    </style>
     <link href="./static/css/app.fd773beb8e342ccd81f08f3b779defcb.css" rel="stylesheet">
 </head>
 
 <body>
-    <div id="app"></div>
+    <div id="app">
+        <div id="loader" class="loader">
+            <div class="spinner"></div>
+            <p>Loading amazing foosball experience...</p>
+        </div>
+    </div>
+    <div id="accessibility-overlay" class="accessibility-overlay" role="dialog" aria-hidden="true">
+        <button id="high-contrast" aria-label="Toggle high contrast">High Contrast</button>
+        <button id="reduce-motion" aria-label="Toggle motion reduction">Reduce Motion</button>
+        <button id="increase-text" aria-label="Increase text size">A+</button>
+        <button id="decrease-text" aria-label="Decrease text size">A-</button>
+    </div>
     <script type="text/javascript" src="./static/js/manifest.2ae2e69a05c33dfc65f8.js"></script>
     <script type="text/javascript" src="./static/js/vendor.1ae09d5ca938400ff5a6.js"></script>
     <script type="text/javascript" src="./static/js/app.d92247839b0c213b46b7.js"></script>
+    <script>
+        // Loading handler
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 1000);
+        });
+
+        // Accessibility controls
+        const highContrastBtn = document.getElementById('high-contrast');
+        const reduceMotionBtn = document.getElementById('reduce-motion');
+        const increaseTextBtn = document.getElementById('increase-text');
+        const decreaseTextBtn = document.getElementById('decrease-text');
+
+        // High contrast toggle
+        highContrastBtn.addEventListener('click', () => {
+            document.body.classList.toggle('high-contrast');
+            const isHighContrast = document.body.classList.contains('high-contrast');
+            localStorage.setItem('highContrast', isHighContrast);
+            highContrastBtn.setAttribute('aria-pressed', isHighContrast);
+        });
+
+        // Reduced motion toggle
+        reduceMotionBtn.addEventListener('click', () => {
+            document.body.classList.toggle('reduce-motion');
+            const isReducedMotion = document.body.classList.contains('reduce-motion');
+            localStorage.setItem('reduceMotion', isReducedMotion);
+            reduceMotionBtn.setAttribute('aria-pressed', isReducedMotion);
+        });
+
+        // Text size controls
+        let currentFontSize = parseInt(getComputedStyle(document.documentElement).fontSize);
+        
+        increaseTextBtn.addEventListener('click', () => {
+            if (currentFontSize < 24) {
+                currentFontSize += 2;
+                document.documentElement.style.fontSize = currentFontSize + 'px';
+                localStorage.setItem('fontSize', currentFontSize);
+            }
+        });
+
+        decreaseTextBtn.addEventListener('click', () => {
+            if (currentFontSize > 12) {
+                currentFontSize -= 2;
+                document.documentElement.style.fontSize = currentFontSize + 'px';
+                localStorage.setItem('fontSize', currentFontSize);
+            }
+        });
+
+        // Load saved preferences
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('highContrast') === 'true') {
+                document.body.classList.add('high-contrast');
+                highContrastBtn.setAttribute('aria-pressed', 'true');
+            }
+
+            if (localStorage.getItem('reduceMotion') === 'true') {
+                document.body.classList.add('reduce-motion');
+                reduceMotionBtn.setAttribute('aria-pressed', 'true');
+            }
+
+            const savedFontSize = localStorage.getItem('fontSize');
+            if (savedFontSize) {
+                currentFontSize = parseInt(savedFontSize);
+                document.documentElement.style.fontSize = currentFontSize + 'px';
+            }
+        });
+    </script>
 </body>
 
 </html>
